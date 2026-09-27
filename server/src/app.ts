@@ -1,6 +1,8 @@
 import Fastify from "fastify";
 import dotenv from "dotenv";
+
 import { repositoryRoutes } from "./api/repository.routes.js";
+import { askRoutes } from "./api/ask.routes.js";
 
 dotenv.config();
 
@@ -16,6 +18,7 @@ app.get("/health", async () => {
 });
 
 app.register(repositoryRoutes);
+app.register(askRoutes);
 
 const start = async () => {
   try {
